@@ -1,0 +1,125 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+}
+
+#wrapper {
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#header {
+  padding: 10px 25px;
+  background-color: #333;
+  border-radius: 5px 5px 0px 0px;
+}
+
+#toggleButton {
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+#toggleButton:focus {
+  outline: 0;
+}
+
+.on {
+  background-color: #306FDF;
+}
+.on:hover {
+  background-color: #205FCF;
+}
+
+.off {
+  background-color: #999;
+}
+
+.off:hover {
+  background-color: #777;
+}
+
+#body1 {
+  padding: 10px 22px;
+}
+
+#addInput {
+  width: 190px;
+  height: 20px;
+  padding-left: 5px;
+}
+
+#addInput:focus {
+  outline: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  /*margin: 1em 0;*/
+  padding: 0; 
+}
+
+#body2 {
+  padding: 10px 25px;
+}
+
+h2 {
+  margin: 0;
+  color: #333;
+}
+
+.siteDiv {
+  display: inline-block;
+  border: 1px solid #ccc;
+  height: 20px;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.site {
+  display: inline-block;
+  height: 20px;
+  margin: 0px 10px;
+}
+
+.delete {
+  border: none;
+  background: #ff463d;
+  width: 20px;
+  height: 20px;
+  border-radius: 0px 8px 8px 0px;
+  color: white;
+  font-size: 10px;
+}
+
+.delete:hover {
+  background: #cc1e16;
+}
+
+#footer {
+  padding: 2px 25px;
+  background-color: #333;
+  border-radius: 0px 0px 5px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer p {
+  display: inline;
+  color: white;
+  margin: 5px;
+  font-size: 10px;
+}
+
+#footer a {
+  color: inherit;
+}

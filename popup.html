@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+
+    <link href="style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <button id="toggleButton"></button>
+      </div>
+      <div id="body1">
+        <p id="messageP"></p>
+        <form id="addForm">
+          <input type="text" id="addInput" placeholder="What website is distracting you?">
+        </form>
+      </div>
+      <hr>
+      <div id="body2">
+        <h2>Blocked Sites</h2>
+        <p id="noSitesP"><i>You haven't blocked any sites yet, try adding one above!</i></p>
+        <div id="sitesDiv">
+        </div>
+      </div>
+      <div id="footer">
+        <p id="source">source</p>
+        <p id="infocus">Infocus <i class="fas fa-eye"></i></p>
+        <p id="options"><a href="/options.html" target="_blank">options</a></p>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

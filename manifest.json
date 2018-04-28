@@ -1,0 +1,27 @@
+{
+  "name": "Infocus",
+  "version": "1.0",
+  "description": "Stay focused",
+  "permissions": ["activeTab", "storage", "tabs", "http://*/*", "https://*/*"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/unfocus16.png",
+      "32": "images/unfocus32.png",
+      "48": "images/unfocus48.png",
+      "128": "images/unfocus128.png"
+    }
+  },
+  "icons": {
+    "16": "images/infocus16.png",
+    "32": "images/infocus32.png",
+    "48": "images/infocus48.png",
+    "128": "images/infocus128.png"
+  },
+  "manifest_version": 2
+}
