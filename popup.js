@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         chrome.storage.sync.set({blacklist: curList}, function() {
           console.log(newSite + " added to blacklist");
           addInput.value = "";
-          addInput.blur();
+          //addInput.blur();
           addSite(newSite, sitesDiv);
           noSitesP.style.display = "none";
         });
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function toggle(button, on) {
   if (on) {
     button.className = "on";
-    button.innerText = "On";
+    button.innerText = "ON";
     chrome.browserAction.setIcon({
       path : {
         "16": "images/infocus16.png",
@@ -84,7 +84,7 @@ function toggle(button, on) {
     chrome.browserAction.setBadgeBackgroundColor({color: '#306FDF'});
   } else {
     button.className = "off";;
-    button.innerText = "Off";
+    button.innerText = "OFF";
     chrome.browserAction.setIcon({
       path : {
         "16": "images/unfocus16.png",

@@ -48,8 +48,12 @@ body {
   padding: 10px 22px;
 }
 
+#messageP {
+  width: 200px;
+}
+
 #addInput {
-  width: 190px;
+  width: 194px;
   height: 20px;
   padding-left: 5px;
 }
