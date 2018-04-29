@@ -103,6 +103,12 @@ function addSite(site, sitesDiv) {
   let siteName = document.createElement("p");
   let deleteButton = document.createElement("button");
   siteName.innerText = site;
+
+  const maxLen = 20;
+  if (site.length > maxLen) {
+    siteName.innerText = site.substring(0, 18) + "...";
+  }
+
   siteName.className = "site";
   siteDiv.appendChild(siteName);
   deleteButton.innerHTML = "&times;";
