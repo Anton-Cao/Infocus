@@ -1,11 +1,12 @@
 {
   "name": "Infocus",
-  "version": "1.0",
+  "version": "0.0.1",
   "description": "Stay focused",
+  "author": "Anton Cao",
   "permissions": ["activeTab", "storage", "tabs", "http://*/*", "https://*/*"],
   "background": {
     "scripts": ["background.js"],
-    "persistent": true
+    "persistent": false
   },
   "options_page": "options.html",
   "browser_action": {
