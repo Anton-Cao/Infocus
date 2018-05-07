@@ -1,10 +1,38 @@
 chrome.runtime.onInstalled.addListener(function() {
 
   // set default values
-  chrome.storage.sync.set({blacklist: [], enabled: false, timer: Date.now(), timerEnabled: false, difficulty: 2, disableQs: 5, removeQs: 2});
-  chrome.browserAction.setBadgeText({text: 'OFF'});
-  chrome.browserAction.setBadgeBackgroundColor({color: '#999'});
-  
+  chrome.storage.sync.get(["blacklist", "enabled", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs"], function(data) {
+    let newBlacklist = [];
+    if (typeof data.blacklist != "undefined") {
+      newBlacklist = data.blacklist;
+    }
+    let newEnabled = false;
+    if (typeof data.enabled != "undefined") {
+      newEnabled = data.enabled;
+    }
+    let newTimer = Date.now();
+    if (typeof data.timer != "undefined") {
+      newTimer = data.timer;
+    }
+    let newTimerEnabled = false;
+    if (typeof data.timerEnabled != "undefined") {
+      newTimerEnabled = data.timerEnabled;
+    }
+    let newDifficulty = 2;
+    if (typeof data.difficulty != "undefined") {
+      newDifficulty = data.difficulty;
+    }
+    let newDisableQs = 5;
+    if (typeof data.disableQs != "undefined") {
+      newDisableQs = data.disableQs;
+    }
+    let newRemoveQs = 2;
+    if (typeof data.removeQs != "undefined") {
+      newRemoveQs = data.removeQs;
+    }
+    chrome.storage.sync.set({blacklist: newBlacklist, enabled: newEnabled, timer: newTimer, timerEnabled: newTimerEnabled, difficulty: newDifficulty, disableQs: newDisableQs, removeQs: newRemoveQs});
+
+  });
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {

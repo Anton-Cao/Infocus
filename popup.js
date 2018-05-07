@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function() {
     chrome.storage.sync.get("blacklist", function(data) {
       if (data.blacklist.includes(newSite)) {
         messageP.innerText = newSite + " is already blacklisted.";
-      } else if (newSite === "") {
+      } else if (newSite == "") {
         messageP.innerText = "Site cannot be empty";
       } else if ("chrome://extensions".match(newSite)) {
         messageP.innerText = "Don't block chrome://extensions :3";

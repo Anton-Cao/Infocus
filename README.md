@@ -10,6 +10,9 @@ Plus, if you really need to disable it, you'll get some mental math practice in 
 - [ ] Improve pattern matching
 
 ## Releases
+#### 1.0.0 (not yet released)
+* Data persists on update
+
 #### 0.0.2
 * Option to set timer
 * More difficult to disable
