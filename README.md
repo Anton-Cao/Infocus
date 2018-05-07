@@ -10,7 +10,7 @@ Plus, if you really need to disable it, you'll get some mental math practice in 
 - [ ] Improve pattern matching
 
 ## Releases
-#### 1.0.0 (not yet released)
+#### 1.0
 * Data persists on update
 
 #### 0.0.2
