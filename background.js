@@ -36,41 +36,39 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  chrome.storage.sync.get('enabled', function(result) {
+  chrome.storage.sync.get(['enabled', 'blacklist'], function(result) {
     if ('url' in changeInfo) {
-      chrome.storage.sync.get('blacklist', function(result) {
-        const blacklist = result.blacklist;
-        let blacklisted = false;
-        for (let i = 0; i < blacklist.length; i++) {
-          const pattern = blacklist[i];
-          if (!!tab.url.match(pattern)) {
-            blacklisted = true;
-            break;
-          }
+      const blacklist = result.blacklist;
+      let blacklisted = false;
+      for (let i = 0; i < blacklist.length; i++) {
+        const pattern = blacklist[i];
+        if (!!tab.url.match(pattern)) {
+          blacklisted = true;
+          break;
         }
-        if (blacklisted) {
-          if (result.enabled) {
-            chrome.tabs.executeScript(tab.id, {
-              "code" : "window.history.length"
-            }, function(result) {
-              if (result <= 2) { // tab was recently opened, so should close tab
-                chrome.tabs.remove(tab.id);
-              } else { // should go back in history
-                chrome.tabs.executeScript(tab.id, {"code": "window.history.back()"});
-              }
-            });
-          } else {
-            if (Math.random() > 0.8) { // if user is on banned site, randomly reminds to turn on Infocus
-              chrome.notifications.create({
-                type: "basic",
-                iconUrl: "/images/infocus128.png",
-                title: "Time to focus?",
-                message: "Don't get lost down the rabbit hole..."
-              });
+      }
+      if (blacklisted) {
+        if (result.enabled) {
+          chrome.tabs.executeScript(tab.id, {
+            "code" : "window.history.length"
+          }, function(result) {
+            if (result <= 2) { // tab was recently opened, so should close tab
+              chrome.tabs.remove(tab.id);
+            } else { // should go back in history
+              chrome.tabs.executeScript(tab.id, {"code": "window.history.back()"});
             }
+          });
+        } else {
+          if (Math.random() > 0.8) { // if user is on banned site, randomly reminds to turn on Infocus
+            chrome.notifications.create({
+              type: "basic",
+              iconUrl: "/images/infocus128.png",
+              title: "Time to focus?",
+              message: "Don't get lost down the rabbit hole..."
+            });
           }
         }
-      });
+      }
     }
   });
 });

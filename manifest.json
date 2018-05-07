@@ -1,7 +1,7 @@
 {
   "name": "Infocus",
   "version": "0.0.2",
-  "description": "Keeps you focused by automatically closing sites you find distracting. Helps you practice mental math too!",
+  "description": "Stay productive!",
   "author": "Anton Cao",
   "permissions": ["notifications", "storage", "tabs", "http://*/*", "https://*/*"],
   "background": {
