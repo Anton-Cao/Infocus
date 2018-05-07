@@ -1,6 +1,6 @@
 {
   "name": "Infocus",
-  "version": "0.0.2",
+  "version": "1.0",
   "description": "Stay productive!",
   "author": "Anton Cao",
   "permissions": ["notifications", "storage", "tabs", "http://*/*", "https://*/*"],
