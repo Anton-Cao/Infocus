@@ -1,9 +1,9 @@
 {
   "name": "Infocus",
-  "version": "0.0.1",
-  "description": "Stay focused",
+  "version": "0.0.2",
+  "description": "Keeps you focused by automatically closing sites you find distracting. Helps you practice mental math too!",
   "author": "Anton Cao",
-  "permissions": ["activeTab", "storage", "tabs", "http://*/*", "https://*/*"],
+  "permissions": ["notifications", "storage", "tabs", "http://*/*", "https://*/*"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -12,10 +12,10 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/unfocus16.png",
-      "32": "images/unfocus32.png",
-      "48": "images/unfocus48.png",
-      "128": "images/unfocus128.png"
+      "16": "images/infocus16.png",
+      "32": "images/infocus32.png",
+      "48": "images/infocus48.png",
+      "128": "images/infocus128.png"
     }
   },
   "icons": {

@@ -9,24 +9,90 @@ body {
   border-radius: 5px;
 }
 
-#header {
+#testDiv {
+  width: 100%;
+  height: 100%;
   padding: 10px 25px;
+  position: absolute;
+  z-index: 10;
   background-color: #333;
-  border-radius: 5px 5px 0px 0px;
+  color: white;
 }
 
-#toggleButton {
+#testTitle {
+  width: 200px;
+  word-wrap: break-word;
+  margin-bottom: 2px;
+}
+
+#testStatus {
+  margin-top: 2px;
+}
+
+#testP {
+  display: inline-block;
+  width: 110px;
+}
+
+#testForm {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#testInput {
+  width: 70px;
+}
+
+#cancelButton {
   width: 200px;
   height: 30px;
   border: none;
   border-radius: 5px;
   text-align: center;
   font-size: 18px;
+  background-color: #306FDF;
   color: white;
 }
 
-#toggleButton:focus {
+#cancelButton:hover {
+  background-color: #205FCF;
+}
+
+#header {
+  padding: 10px 25px;
+  background-color: #333;
+  border-radius: 5px 5px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input:focus {
   outline: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#timerInput {
+  width: 90px;
+  height: 25px;
+  padding-left: 5px;
+}
+
+#toggleButton {
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
 }
 
 .on {
@@ -50,6 +116,7 @@ body {
 
 #messageP {
   width: 200px;
+  color: #ff463d;
 }
 
 #addInput {
@@ -58,26 +125,16 @@ body {
   padding-left: 5px;
 }
 
-#addInput:focus {
-  outline: 0;
-}
-
 hr {
   display: block;
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
-  /*margin: 1em 0;*/
   padding: 0; 
 }
 
 #body2 {
   padding: 10px 25px;
-}
-
-h3 {
-  margin: 0;
-  color: #333;
 }
 
 .siteDiv {
@@ -126,4 +183,27 @@ h3 {
 
 #footer a {
   color: inherit;
+}
+
+/*https://css-tricks.com/snippets/css/shake-css-keyframe-animation/*/
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+.apply-shake {
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
 }
