@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-   
+    <title>Options</title>
+    <link rel="stylesheet" href="css/options.css">
   </head>
   <body>
-    This page is currently under construction, both in functionality and in appearance.
-    <br>
-    To use Infocus, simply add any websites you get distracted by and then turn the extension on.
-    Any time you visit a website whose url contains a string you blocked, the extension will go back or close the tab.
+    <div id="container">
+      <h1>Options</h1>
+
+      <div class="option">
+        <h3>Number of math problems...</h3>
+        <p>To disable Infocus:</p>
+        <form id="disableForm" autocomplete="off">
+          <input type="number" min="5" id="disableInput" placeholder="">
+        </form>
+        <br>
+        <p>To remove a site:</p>
+        <form id="removeForm" autocomplete="off">
+          <input type="number" min="2" id="removeInput" placeholder="">
+        </form>
+      </div>
+
+      <br>
+      
+      <h1>About</h1>
+      <p id="about">
+        To use Infocus, add websites you get distracted by and then turn the extension on.
+        When you visit a url containing a website you blocked, the extension will close the tab or go back to the previous site for you!
+        <br>
+        Infocus is <a href="https://github.com/Anton-Cao/Infocus">open source</a>, feel free to make feature requests by creating an <a href="https://github.com/Anton-Cao/Infocus/issues">issue</a>!
+      </p>
+    </div>
   </body>
-  <script src="options.js"></script>
+  <script src="js/options.js"></script>
 </html>

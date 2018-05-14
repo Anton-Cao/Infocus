@@ -5,7 +5,7 @@
   "author": "Anton Cao",
   "permissions": ["notifications", "storage", "tabs", "http://*/*", "https://*/*"],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["js/background.js"],
     "persistent": false
   },
   "options_page": "options.html",

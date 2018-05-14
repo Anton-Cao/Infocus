@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // handles enabling blocking/adding time
   function turnOn() {
-    let minutes = timerInput.value;
+    let minutes = parseInt(timerInput.value);
     if (minutes.length > 0) {
       chrome.storage.sync.get(["timer", "timerEnabled"], function(data) {
         let newTime = Date.now() + minutes * msInMin;
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   testForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    let answer = testInput.value;
+    let answer = parseInt(testInput.value);
     if (answer) {
       if (answer == curAns) {
         correct += 1;
