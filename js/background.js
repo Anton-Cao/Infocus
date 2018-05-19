@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(function() {
 
   // set default values
-  chrome.storage.sync.get(["blacklist", "enabled", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs"], function(data) {
+  chrome.storage.sync.get(["blacklist", "enabled", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs", "regex"], function(data) {
     let newBlacklist = [];
     if (typeof data.blacklist != "undefined") {
       newBlacklist = data.blacklist;
@@ -30,22 +30,35 @@ chrome.runtime.onInstalled.addListener(function() {
     if (typeof data.removeQs != "undefined") {
       newRemoveQs = data.removeQs;
     }
-    chrome.storage.sync.set({blacklist: newBlacklist, enabled: newEnabled, timer: newTimer, timerEnabled: newTimerEnabled, difficulty: newDifficulty, disableQs: newDisableQs, removeQs: newRemoveQs});
+    let newRegex = false;
+    if (typeof data.regex != "undefined") {
+      newRegex = data.regex;
+    }
+    chrome.storage.sync.set({blacklist: newBlacklist, enabled: newEnabled, timer: newTimer, timerEnabled: newTimerEnabled, difficulty: newDifficulty, disableQs: newDisableQs, removeQs: newRemoveQs, regex: newRegex});
 
   });
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  chrome.storage.sync.get(['enabled', 'blacklist'], function(result) {
+  chrome.storage.sync.get(['enabled', 'blacklist', 'regex'], function(result) {
     if ('url' in changeInfo) {
       const blacklist = result.blacklist;
       let blacklisted = false;
       for (let i = 0; i < blacklist.length; i++) {
         const pattern = blacklist[i];
-        if (!!tab.url.match(pattern)) {
-          blacklisted = true;
-          break;
+
+        if (result.regex) {
+          if (!!tab.url.match(new RegExp(pattern.replace(/\\/g, "\\\\")))) {
+            blacklisted = true;
+            break;
+          }
+        } else {
+          if (extractRootDomain(tab.url).toLowerCase() == pattern.toLowerCase()) {
+            blacklisted = true;
+            break;
+          }
         }
+
       }
       if (blacklisted) {
         if (result.enabled) {
@@ -72,6 +85,46 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     }
   });
 });
+
+// https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string
+function extractHostname(url) {
+  let hostname;
+  //find & remove protocol (http, ftp, etc.) and get hostname
+
+  if (url.indexOf("://") > -1) {
+    hostname = url.split('/')[2];
+  }
+  else {
+    hostname = url.split('/')[0];
+  }
+
+  //find & remove port number
+  hostname = hostname.split(':')[0];
+  //find & remove "?"
+  hostname = hostname.split('?')[0];
+
+  return hostname;
+}
+
+// To address those who want the "root domain," use this function:
+function extractRootDomain(url) {
+  let domain = extractHostname(url),
+      splitArr = domain.split('.'),
+      arrLen = splitArr.length;
+
+  //extracting the root domain here
+  //if there is a subdomain 
+  if (arrLen > 2) {
+    domain = splitArr[arrLen - 2] + '.' + splitArr[arrLen - 1];
+    //check to see if it's using a Country Code Top Level Domain (ccTLD) (i.e. ".me.uk")
+    if (splitArr[arrLen - 2].length == 2 && splitArr[arrLen - 1].length == 2) {
+      //this is using a ccTLD
+      domain = splitArr[arrLen - 3] + '.' + domain;
+    }
+  }
+  return domain.split('.')[0]; 
+}
+
 
 // change badge when time runs out
 function checkTime() {

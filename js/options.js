@@ -3,10 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
   let disableInput = document.getElementById("disableInput");
   let removeForm = document.getElementById("removeForm");
   let removeInput = document.getElementById("removeInput");
+  let regexCheckbox = document.getElementById("regexCheckbox");
 
-  chrome.storage.sync.get(["disableQs", "removeQs"], function(data) {
+  chrome.storage.sync.get(["disableQs", "removeQs", "regex"], function(data) {
     disableInput.placeholder = "Currently " + data.disableQs.toString();
     removeInput.placeholder = "Currently " + data.removeQs.toString();
+    regexCheckbox.checked = data.regex;
   });
 
   disableForm.addEventListener("submit", function(event) {
@@ -26,4 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
       removeInput.value = null;
     });
   });
+
+  regexCheckbox.onclick = function() {
+    chrome.storage.sync.set({"regex" : regexCheckbox.checked});
+  };
 });

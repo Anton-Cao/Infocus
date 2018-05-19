@@ -7,9 +7,13 @@ Plus, if you really need to disable it, you'll get some mental math practice in 
 ## Features to be implemented
 - [x] Add timer option
 - [x] Make it more difficult to disable
-- [ ] Improve pattern matching
+- [x] Improve pattern matching
 
 ## Releases
+#### 1.2
+* Fixed bug with timer
+* Allowed user to choose between regex matching and matching 
+
 #### 1.1
 * Simple options page
 

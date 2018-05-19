@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const msInMin = 60 * 1000;
 
   // initial setup
-  chrome.storage.sync.get(["enabled", "blacklist", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs"], function(data) {
+  chrome.storage.sync.get(["enabled", "blacklist", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs", "regex"], function(data) {
     // update button (and icon) according to memory
     toggle(data.enabled);
     if (data.timerEnabled) {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // handles enabling blocking/adding time
   function turnOn() {
     let minutes = parseInt(timerInput.value);
-    if (minutes.length > 0) {
+    if (minutes) {
       chrome.storage.sync.get(["timer", "timerEnabled"], function(data) {
         let newTime = Date.now() + minutes * msInMin;
         if (data.timerEnabled) {
