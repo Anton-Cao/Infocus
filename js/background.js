@@ -57,6 +57,11 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             blacklisted = true;
             break;
           }
+          // if . in pattern, assume they pasted the full url
+          if (!!tab.url.match(pattern)) {
+            blacklisted = true;
+            break;
+          }
         }
 
       }
