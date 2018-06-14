@@ -4,12 +4,12 @@ Infocus is a Chrome extension that tries to keep you *productive* while you're o
 
 Plus, if you really need to disable it, you'll get some mental math practice in the process!
 
-## Features to be implemented
-- [x] Add timer option
-- [x] Make it more difficult to disable
-- [x] Improve pattern matching
-
 ## Releases
+#### 1.3
+* Added keyboard shortcut support
+* Fixed bug where "youtube.com" wasn't matching correctly since domain name was truncated
+* Made notifications appear after fixed time instead of randomly
+
 #### 1.2
 * Fixed bug with timer
 * Allowed user to choose between regex matching and matching 

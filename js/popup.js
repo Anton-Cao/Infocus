@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function turnOff() {
     timerEnabled = false;
-    chrome.storage.sync.set({"timerEnabled" : false, "enabled" : false}, function() {
+    chrome.storage.sync.set({"timerEnabled" : false, "enabled" : false, "unfocusTime" : 0}, function() {
       timerInput.placeholder = "Timer (min)";
       toggle(false);
     });
@@ -192,7 +192,6 @@ document.addEventListener("DOMContentLoaded", function() {
   function endTest() {
     rounds = 0;
     correct = 0;
-    success = null;
     testDiv.style.display = "none";    
   }
   

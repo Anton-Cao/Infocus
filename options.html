@@ -6,6 +6,14 @@
   </head>
   <body>
     <div id="container">
+      <div id="title" align="center">
+        <span style="font-weight: bold; font-size: 4em;">Infocus</span> <span class="label">v1.3</span>
+        <br>
+        <span style="font-weight: bold;">Infocus is <a href="https://github.com/Anton-Cao/Infocus">open source</a>, feel free to make feature requests by creating an <a href="https://github.com/Anton-Cao/Infocus/issues">issue</a>!</span>
+
+      </div>
+      
+     
       <h1>Options</h1>
 
       <div class="option">
@@ -15,7 +23,7 @@
           <input type="number" min="5" id="disableInput" placeholder="">
         </form>
         <br>
-        <p>To remove a site:</p>
+        <p style="margin-top: 0;">To remove a site:</p>
         <form id="removeForm" autocomplete="off">
           <input type="number" min="2" id="removeInput" placeholder="">
         </form>
@@ -24,21 +32,66 @@
       <div class="option">
         <h3>URL Matching</h3>
         <p>
-          By default, Infocus only blocks sites whose domain name matches one of your blacklisted sites exactly.
-          <br />
-          You also have the option to use <a href="https://regexone.com/" target="_blank">regex</a> patterns to block URLs.
-          <br />
+          By default, Infocus only blocks sites whose domain name matches one of your blacklisted sites.
+          <br>
+          You also have the option to use <a href="https://regexone.com/" target="_blank">regex</a> patterns for more flexibility.
         </p>
-        Click to enable regex: <input id="regexCheckbox" type="checkbox">
-      <br>
-      
-      <h1>About</h1>
-      <p id="about">
-        To use Infocus, add websites you get distracted by and then turn the extension on.
-        When you visit a url containing a website you blocked, the extension will close the tab or go back to the previous site for you!
         <br>
-        Infocus is <a href="https://github.com/Anton-Cao/Infocus">open source</a>, feel free to make feature requests by creating an <a href="https://github.com/Anton-Cao/Infocus/issues">issue</a>!
-      </p>
+        <p style="margin-top: 0;"><span style="font-weight: bold;">Click to enable regex:</span></p> <input id="regexCheckbox" type="checkbox">
+      </div>
+
+      <div class="option">
+        <h3>Notifications</h3>
+        <p>Customize the notifications that appear when Infocus prompts you to get back to work.</p>
+        <br>
+        <p style="margin-top: 0">Motivational text:</p>
+        <form id="notifMessForm" autocomplete="off">
+          <input type="text" id="notifMessInput" >
+        </form>
+        <br>
+        <p style="margin-top: 0;">Duration before notifications begin:</p>
+        <form id="notifTimeForm" autocomplete="off">
+          <input type="number" min="1" max="60" id="notifTimeInput" >
+        </form>
+      </div>
+
+      <h1>About</h1>
+      <ul>
+        <li>Add websites that distract you to the extension </li>
+        <li>When you visit a blocked site, the extension will close the tab or go back to the previous site for you! </li>
+        <li>Use the shortcut <span class="label">ctrl+i</span> (<span class="label">command+i</span> on Mac) to enable Infocus  </li>
+        <li>You have to solve a few math problems to disable Infocus :)</li>
+        <li>Optionally set the timer for how long you want to work - Infocus will automatically turn off afterwards </li>
+        <li>When disabled, Infocus will periodically ask you to focus again if you are on a distracting site </li>
+      </ul>
+     
+      <h1>Changelog</h1>
+      <ul>
+        <li> <span class="label">1.3 </span>
+          <ul>
+            <li>Added keyboard shortcut support</li>
+            <li>Fix non-regex matching to account for full urls</li>
+            <li>Fixed bug where option input allowed NaN</li>
+            <li>Made notifications appear after fixed time instead of randomly</li>
+          </ul>
+        </li>
+        <li> <span class="label">1.2 </span>
+          <ul>
+            <li>Fixed bug with timer</li>
+            <li>Added regex support</li>
+          </ul>
+        </li>
+        <li> <span class="label">1.1 </span>
+          <ul>
+            <li>Added options page</li>
+          </ul>
+        </li>
+        <li> <span class="label">1.0 </span>
+          <ul>
+            <li>Hello world!</li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </body>
   <script src="js/options.js"></script>
