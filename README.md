@@ -5,6 +5,11 @@ Infocus is a Chrome extension that tries to keep you *productive* while you're o
 Plus, if you really need to disable it, you'll get some mental math practice in the process!
 
 ## Releases
+#### 1.4
+* Added motivational message to problem solving page
+* Make button text more intuitive
+* Make options page open on install
+
 #### 1.3
 * Added keyboard shortcut support
 * Fixed bug where "youtube.com" wasn't matching correctly since domain name was truncated
