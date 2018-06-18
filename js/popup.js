@@ -21,10 +21,11 @@ document.addEventListener("DOMContentLoaded", function() {
   let difficulty = 2;
   let disableQs = 5;
   let removeQs = 2;
+  let motiv = "Remember, you're supposed to be focusing. You got this!";
   const msInMin = 60 * 1000;
 
   // initial setup
-  chrome.storage.sync.get(["enabled", "blacklist", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs", "regex"], function(data) {
+  chrome.storage.sync.get(["enabled", "blacklist", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs", "regex", "motiv"], function(data) {
     // update button (and icon) according to memory
     toggle(data.enabled);
     if (data.timerEnabled) {
@@ -50,16 +51,35 @@ document.addEventListener("DOMContentLoaded", function() {
     difficulty = data.difficulty;
     disableQs = data.disableQs;
     removeQs = data.removeQs;
+    motiv = data.motiv;
   });
 
 
   /*
     Code relevant to activating/deactivating
   */
+
+  timerForm.addEventListener("input", function(event) {
+    if (!timerEnabled) {
+      if (timerInput.value.length > 0) {
+        toggleButton.innerText = "START";
+      } else {
+        chrome.storage.sync.get(["enabled"], function(data) {
+          if (data.enabled) {
+            toggleButton.innerText = "ON";
+          } else {
+            toggleButton.innerText = "OFF";
+          }
+        });
+      }
+    }
+  });
   
   timerForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    turnOn();
+    if (timerInput.value.length > 0) {
+      turnOn();
+    }
   });
 
   // toggle between enabled and disabled
@@ -148,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
       testTitle.innerText += " disable Infocus";
     }
     testStatus.innerText = "Solved " + correct.toString() + " out of " + rounds.toString();
+    testQuote.innerText = motiv;
     askQuestion();
   }
 

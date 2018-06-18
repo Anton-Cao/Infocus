@@ -58,6 +58,11 @@ body {
   background-color: #205FCF;
 }
 
+#testQuote {
+  width: 200px;
+  font-size: 1.2em;
+}
+
 #header {
   padding: 10px 25px;
   background-color: #333;

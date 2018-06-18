@@ -28,8 +28,16 @@ form {
   margin-left: 5px;
 }
 
+#motivForm {
+  width: 400px;
+}
+
+#motivInput {
+  width: 100%;
+}
+
 #notifMessForm {
-  width: 200px;
+  width: 400px;
 }
 
 #notifMessInput {
@@ -37,7 +45,7 @@ form {
 }
 
 #notifTimeForm {
-  width: 100px;
+  width: 150px;
 }
 
 #notifTimeInput {

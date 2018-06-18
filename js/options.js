@@ -4,15 +4,18 @@ document.addEventListener("DOMContentLoaded", function() {
   let removeForm = document.getElementById("removeForm");
   let removeInput = document.getElementById("removeInput");
   let regexCheckbox = document.getElementById("regexCheckbox");
+  let motivForm = document.getElementById("motivForm");
+  let motivInput = document.getElementById("motivInput");
   let notifMessForm = document.getElementById("notifMessForm");
   let notifMessInput = document.getElementById("notifMessInput");
   let notifTimeForm = document.getElementById("notifTimeForm");
   let notifTimeInput = document.getElementById("notifTimeInput");
 
-  chrome.storage.sync.get(["disableQs", "removeQs", "regex", "notifMess", "notifTime"], function(data) {
+  chrome.storage.sync.get(["disableQs", "removeQs", "regex", "motiv", "notifMess", "notifTime"], function(data) {
     disableInput.placeholder = "Currently " + data.disableQs.toString();
     removeInput.placeholder = "Currently " + data.removeQs.toString();
     regexCheckbox.checked = data.regex;
+    motivInput.placeholder = data.motiv;
     notifMessInput.placeholder = data.notifMess;
     notifTimeInput.placeholder = "Currently " + data.notifTime.toString() + " mins";
   });
@@ -42,6 +45,17 @@ document.addEventListener("DOMContentLoaded", function() {
   regexCheckbox.onclick = function() {
     chrome.storage.sync.set({"regex" : regexCheckbox.checked});
   };
+
+  motivForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let newMess = motivInput.value;
+    if (newMess.length > 0) {
+      chrome.storage.sync.set({"motiv": newMess}, function() {
+        motivInput.placeholder = newMess;
+        motivInput.value = null;
+      });
+    }
+  });
 
   notifMessForm.addEventListener("submit", function(event) {
     event.preventDefault();

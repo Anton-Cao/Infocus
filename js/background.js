@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(function() {
 
   // set default values
-  chrome.storage.sync.get(["blacklist", "enabled", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs", "regex", "notifMess", "notifTime", "unfocusTime"], function(data) {
+  chrome.storage.sync.get(["blacklist", "enabled", "timer", "timerEnabled", "difficulty", "disableQs", "removeQs", "regex", "motiv", "notifMess", "notifTime", "unfocusTime"], function(data) {
     let newBlacklist = [];
     if (typeof data.blacklist != "undefined") {
       newBlacklist = data.blacklist;
@@ -43,7 +43,11 @@ chrome.runtime.onInstalled.addListener(function() {
     if (typeof data.regex != "undefined") {
       newRegex = data.regex;
     }
-
+    let newMotiv = "Remember, you're supposed to be focusing. You got this!";
+    if (typeof data.motiv != "undefined") {
+      newMotiv = data.motiv;
+    }
+    
     let newNotifMess = "Don't get lost down the rabbit hole...";
     if (typeof data.notifMess != "undefined") {
       newNotifMess = data.notifMess;
@@ -59,9 +63,12 @@ chrome.runtime.onInstalled.addListener(function() {
       newUnfocusTime = data.unfocusTime;
     }
 
-    chrome.storage.sync.set({blacklist: newBlacklist, enabled: newEnabled, timer: newTimer, timerEnabled: newTimerEnabled, difficulty: newDifficulty, disableQs: newDisableQs, removeQs: newRemoveQs, regex: newRegex, notifMess: newNotifMess, notifTime: newNotifTime, unfocusTime: newUnfocusTime});
+    chrome.storage.sync.set({blacklist: newBlacklist, enabled: newEnabled, timer: newTimer, timerEnabled: newTimerEnabled, difficulty: newDifficulty, disableQs: newDisableQs, removeQs: newRemoveQs, regex: newRegex, motiv: newMotiv, notifMess: newNotifMess, notifTime: newNotifTime, unfocusTime: newUnfocusTime});
 
   });
+
+  chrome.tabs.create({ url: "chrome-extension://cklefjkgmecmdknhinecjlcekipflfnf/options.html" });
+  
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {

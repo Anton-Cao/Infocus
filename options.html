@@ -7,7 +7,7 @@
   <body>
     <div id="container">
       <div id="title" align="center">
-        <span style="font-weight: bold; font-size: 4em;">Infocus</span> <span class="label">v1.3</span>
+        <span style="font-weight: bold; font-size: 4em;">Infocus</span> <span class="label">v1.4</span>
         <br>
         <span style="font-weight: bold;">Infocus is <a href="https://github.com/Anton-Cao/Infocus">open source</a>, feel free to make feature requests by creating an <a href="https://github.com/Anton-Cao/Infocus/issues">issue</a>!</span>
 
@@ -41,10 +41,20 @@
       </div>
 
       <div class="option">
+        <h3>Motivational Message</h3>
+        <p>Customize the message that appears when you are trying to disable Infocus.</p>
+        <br>
+        <p style="margin-top: 0">Motivational text:</p>
+        <form id="motivForm" autocomplete="off">
+          <input type="text" id="motivInput" >
+        </form>
+      </div>
+
+      <div class="option">
         <h3>Notifications</h3>
         <p>Customize the notifications that appear when Infocus prompts you to get back to work.</p>
         <br>
-        <p style="margin-top: 0">Motivational text:</p>
+        <p style="margin-top: 0">Notification text:</p>
         <form id="notifMessForm" autocomplete="off">
           <input type="text" id="notifMessInput" >
         </form>
@@ -67,6 +77,13 @@
      
       <h1>Changelog</h1>
       <ul>
+        <li> <span class="label">1.4 </span>
+          <ul>
+            <li> Added motivational message to problem solving page </li>
+            <li> Made button text more intuitive </li>
+            <li> Made options page open on install </li>
+          </ul>
+        </li>
         <li> <span class="label">1.3 </span>
           <ul>
             <li>Added keyboard shortcut support</li>
