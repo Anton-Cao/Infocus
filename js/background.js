@@ -67,7 +67,7 @@ chrome.runtime.onInstalled.addListener(function() {
 
   });
 
-  chrome.tabs.create({ url: "chrome-extension://cklefjkgmecmdknhinecjlcekipflfnf/options.html" });
+  chrome.tabs.create({ url: "chrome-extension://ojgabebkfpaedailhgeapeedhobgfppf/options.html" });
   
 });
 

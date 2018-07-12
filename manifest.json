@@ -1,6 +1,6 @@
 {
   "name": "Infocus",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Stay focused on the internet with this simple Chrome extension!",
   "author": "Anton Cao",
   "permissions": ["notifications", "storage", "tabs", "http://*/*", "https://*/*"],
